@@ -10,7 +10,7 @@ const rsvpSchema = new mongoose.Schema({
   },
   havePartner: {
     type: Boolean,
-    required: 'Is anyone coming with you?',
+    default: false,
   },
   partnerName: {
     type: String,

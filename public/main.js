@@ -1,7 +1,7 @@
 const nextStepBtns = document.querySelectorAll('.next-step');
 const prevStepBtns = document.querySelectorAll('.prev-step');
 const progressBar = document.querySelector('.progress-bar--filled');
-let step = 0;
+let currentStep = 0;
 
 function nextStep() {
   const active = document.querySelector('.active');
@@ -19,8 +19,8 @@ function nextStep() {
     next.classList.add('active');
   }, 300);
 
-  step += 1;
-  progressBar.style.width = `${step * 16.6667}%`;
+  currentStep += 1;
+  progressBar.style.width = `${currentStep * 16.6667}%`;
 }
 
 function prevStep() {
@@ -36,8 +36,24 @@ function prevStep() {
     prev.classList.add('active');
   }, 300);
 
-  step -= 1;
-  progressBar.style.width = `${step * 16.6667}%`;
+  currentStep -= 1;
+  progressBar.style.width = `${currentStep * 16.6667}%`;
+}
+
+function goToStep(stepNo) {
+  document.querySelectorAll('.step').forEach((step) => {
+    step.classList.remove('active');
+  });
+  setTimeout(() => {
+    document.querySelector(`.step-${stepNo}`).classList.add('active');
+  }, 300);
+
+  currentStep = stepNo - 1;
+  progressBar.style.width = `${currentStep * 16.6667}%`;
+}
+
+function goToEnd() {
+  makeStepActive(7);
 }
 
 nextStepBtns.forEach((btn) => {
