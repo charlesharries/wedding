@@ -18,7 +18,8 @@ module.exports = {
     "no-console": 0,
     "no-use-before-define": ["error", { "functions": false }],
     "no-restricted-globals": 0,
-    "func-names": 0
+    "func-names": 0,
+    "quote-props": 0 
   },
   "globals": {
   }

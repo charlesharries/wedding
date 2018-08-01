@@ -1,10 +1,27 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
+  font-size: 20px;
+}
+
+.inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Unicase';
+  margin-top: 0;
+}
+
+h1 {
+  border-bottom: 1px solid purple;
+  padding-bottom: 20px;
 }
 
 a {
   color: #00B7FF;
+  cursor: pointer;
 }
 
 .intro {
@@ -13,6 +30,104 @@ a {
 
 form {
   position: relative;
+}
+
+label {
+  display: block;
+  margin: 0;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+input[type="text"] {
+  font-size: 20px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  width: 200px;
+  font-family: 'Cormorant Garamond';
+}
+
+input + label {
+  display: inline-block;
+  color: #000;
+  font-size: 20px;
+  padding-left: 30px;
+  position: relative;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: none;
+}
+
+input + label:before {
+  height: 20px;
+  width: 20px;
+  content: "";
+  border: 1px solid #ccc;
+  left: 0;
+  position: absolute;
+  border-radius: 2px;
+}
+
+input:checked + label:before {
+  background-color: purple;
+  border-color: purple;
+  background-image: url('../images/check.png');
+  background-size: 14px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.partner-name,
+.dietary-restriction {
+  display: none;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+.step a.to-review {
+  display: none;
+}
+
+.step {
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  padding: 40px;
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+
+.step.step-1 {
+  box-shadow: none;
+  padding: 0;
+}
+
+.step.step-1 a {
+  margin-top: 0;
+}
+
+.step a {
+  margin-top: 20px;
+  margin-right: 10px;
+  display: inline-block;
+  background: purple;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 2px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+}
+
+.step a.prev-step {
+  background: #f1f1f8;
+  color: black;
+}
+
+.step__inner {
+  border: 1px solid purple;
+  padding: 40px;
 }
 
 .step.active {
@@ -26,7 +141,7 @@ form {
 }
 
 .progress-bar {
-  height: 10px;
+  height: 2px;
   width: 100%;
   background: #ddd;
   border-radius: 5px;
@@ -39,4 +154,19 @@ form {
   background-color: purple;
   transition: width 0.3s ease;
   position: relative;
+}
+
+.error {
+  display: none;
+  color: crimson;
+  border: 1px solid crimson;
+  padding: 8px 16px;
+  border-radius: 2px;
+  margin-bottom: 0;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+.error.error-active {
+  display: inline-block;
 }

@@ -3,152 +3,224 @@
   <%- include partials/_head %>
   <%- include partials/_flash %>
   <body>
-    <div class="intro">
-      <h1>Sam and Charles Are Getting Married</h1>
-      <p>Sam and Charles are getting married on Saturday, 23rd February, 2019, at St. Luke's Church in Hartlepool, United Kingdom. And we want you to be there. Very much.</p>
+    <div class="inner">
+      <div class="intro">
+        <h1>Sam and Charles Are Getting Married</h1>
+        <p>Sam and Charles are getting married on Saturday, 23rd February, 2019, at St. Luke's Church in Hartlepool, United Kingdom. And we want you to be there. Very much.</p>
 
-  		<p>We've put together this little site to help you RSVP and to get some information from you. Stuff like dietary preferences and transport.</p>
+    		<p>We've put together this little site to help you RSVP and to get some information from you. Stuff like dietary preferences and transport.</p>
 
-  		<p>This should only take two or three minutes, so let's start!</p>
-    </div>
+    		<p>This should only take two or three minutes, so let's start!</p>
+      </div>
 
-    <div class="progress-bar__wrap">
-      <div class="progress-bar">
-        <div class="progress-bar--filled">
+      <div class="progress-bar__wrap">
+        <div class="progress-bar">
+          <div class="progress-bar--filled">
+          </div>
         </div>
       </div>
+
+  		<form action="/respond" method="POST">
+
+        <div class="step step-1 active">
+          <a class="next-step" data-step="1">Let's get started</a>
+        </div>
+
+  			<div class="step step-2">
+          <div class="step__inner">
+    				<h2>Who are you?</h2>
+    				<p>We're sending this e-invite out to all of our friends and family, so we need to know who you are. If you're coming as part of a pair, don't worry. We'll get your partner's name in the next step.</p>
+
+    				<div class="form-field">
+    					<label for="respondant">Your name</label>
+    					<input type="text" class="required" name="respondant">
+    				</div>
+
+            <div class="form-field">
+              <label for="email">Your email address</label>
+              <input type="text" class="required" name="email">
+            </div>
+
+    				<div class="partner-fields">
+    					<div class="form-field">
+    						<input type="checkbox" name="havePartner" class="dependent" id="havePartner" value="true">
+    						<label for="havePartner">Coming with a partner?</label>
+    					</div>
+
+    					<div class="form-field partner-name">
+    						<label for="partnerName">Your partner's name</label>
+    						<input type="text" name="partnerName">
+    					</div>
+    				</div>
+
+            <a class="next-step" data-step="2">Next Step</a>
+            <a class="prev-step">Back</a>
+            <a class="to-review">Review</a>
+            <p class="error">Hold up, we need to know who you are first!</p>
+          </div>
+  			</div>
+
+  			<div class="step step-3">
+          <div class="step__inner">
+    				<h2>Are you able to attend?</h2>
+    				<p><strong>The wedding is Saturday, 23rd February, 2019, in the North East of England.</strong> Whether it's right around the corner or halfway across the world, we can't wait to have you.</p>
+
+    				<div class="form-field">
+    					<input type="radio" name="attending" class="required" id="attending-true" value="true">
+    					<label for="attending-true">Yes, I'll be there</label>
+              <br>
+    					<input type="radio" name="attending" class="required" id="attending-false" value="false">
+    					<label for="attending-false">Sorry, I can't make it</label>
+    				</div>
+
+            <a class="next-step" data-step="3">Next Step</a>
+            <a class="prev-step">Back</a>
+            <a class="to-review">Review</a>
+            <p class="error">You need to tell us if you can attend or not.</p>
+    			</div>
+        </div>
+
+  			<div class="step step-4">
+          <div class="step__inner">
+    				<h2>Do you need transportation from the wedding to the reception?</h2>
+    				<p>We're having the wedding itself at a St. Luke's Church in Hartlepool, but the reception will be at Langley Castle, near Hexham. The drive takes about 1 hour.</p>
+
+    				<p>If you're not planning on renting a car and want to attend the reception, let us know and we'll sort something out. We're looking at you, Canadians.</p>
+
+    				<div class="form-field">
+    					<input type="radio" name="needsTransportation" class="required" id="transportation-true" value="true">
+    					<label for="transportation-true">Yes, I need transportation</label>
+              <br>
+    					
+    					<input type="radio" name="needsTransportation" class="required" id="transportation-false" value="false">
+    					<label for="transportation-false">No, I'll make my own way up</label>
+    				</div>
+
+            <a class="next-step" data-step="4">Next Step</a>
+            <a class="prev-step">Back</a>
+            <a class="to-review">Review</a>
+            <p class="error">Wait, do you need transportation or not?</p>
+    			</div>
+        </div>
+
+  			<div class="step step-5">
+          <div class="step__inner">
+    				<h2>Any dietary requirements?</h2>
+    				<p>Proceeding from the wedding to the castle, we're getting set for a feast. Or what Langley Castle calls a 'wedding breakfast' (even though it's at 2 pm).</p>
+
+    				<p>Is there anything that you can't or don't feel comfortable eating? The meal isn't going to be too <em>out there</em> but if you don't eat meat or you're allergic to eggs, let us know and we'll make sure you can stuff your face anyway.</p>
+
+    				<div class="form-field">
+    					<input type="radio" name="hasDietaryRequirements" class="required" id="dietary-false" value="false">
+    					<label for="dietary-false">No dietary requirements</label>
+              <br>
+    					
+    					<input type="radio" name="hasDietaryRequirements" class="required dependent" id="dietary-true" value="true">
+    					<label for="dietary-true">I have a dietary requirement</label>
+    				</div>
+
+    				<div class="form-field dietary-restriction">
+    					<label>What don't you eat?</label>
+    					<input type="text" name="dietaryRequirements">
+    				</div>
+
+            <a class="next-step" data-step="5">Next Step</a>
+            <a class="prev-step">Back</a>
+            <a class="to-review">Review</a>
+            <p class="error">Is there anything you don't eat?</p>
+    			</div>
+        </div>
+
+  			<div class="step step-6">
+          <div class="step__inner">
+    				<h2>Want to stay the night at the castle?</h2>
+    				<p>We'll have a bit of a finger buffet going as the night falls and we intend for the party to run quite late. But all great things have to come to an end at some point.</p>
+
+    				<p>The party officially ends at midnight, but anyone staying the night (either in the castle or at the Castle View) is welcome to stay up with us in the castle drawing room for nightcaps. What do you say?</p>
+
+            <p>If you'd like to stay the night with us at the Castle, let us know and we'll contact you about arranging accommodation. It's well worth the stay.</p>
+
+    				<div class="form-field">
+    					<input type="radio" name="accommodation" id="accommodation-castle" class="required" value="I'd like to stay in the Castle">
+    					<label for="accommodation-castle">I'd love to stay the night at the Castle</label>
+              <br>
+    					
+    					<input type="radio" name="accommodation" id="accommodation-false" class="required" value="I'll find my own accommodation">
+    					<label for="accommodation-false">I'll find my own accommodation</label>
+    				</div>
+
+    				<div class="self-accommodating">
+    					<p>If you're planning on finding your own accommodation, may we suggest Hexham? There are a few really lovely bed & breakfasts, and the proximity means that you're avoiding a long drive back into Newcastle.</p>
+    				</div>
+
+            <a class="next-step" data-step="6">Next Step</a>
+            <a class="prev-step">Back</a>
+            <a class="to-review">Review</a>
+            <p class="error">Hold on, let us know whether you'd like to stay at the Castle.</p>
+    			</div>
+        </div>
+
+  			<div class="step step-7">
+  				<h2>All done!</h2>
+  				<p>Thanks for filling all this out&mdash;it's going to make our lives a lot easier going into, well, our first day as husband and wife. Huh, that's somehow strange <em>and</em> exciting.</p>
+
+  				<p>Here's a review of your choices, just to make sure. Everything look good?</p>
+
+  				<div class="review">
+            <p class="review--respondant">
+              <span>Your name</span>
+              <span class="review__detail review__detail--respondant"></span>
+              <span class="review__detail--edit" data-step="2">Edit</span>
+            </p>
+
+            <p class="review--havePartner">
+              <span>Bringing a partner?</span>
+              <span class="review__detail review__detail--havePartner"></span>
+              <span class="review__detail--edit" data-step="2">Edit</span>
+            </p>
+
+            <p class="review--partnerName">
+              <span>Partner name</span>
+              <span class="review__detail review__detail--partnerName"></span>
+              <span class="review__detail--edit" data-step="2">Edit</span>
+            </p>
+
+            <p class="review--attending">
+              <span>Are you attending?</span>
+              <span class="review__detail review__detail--attending"></span>
+              <span class="review__detail--edit" data-step="3">Edit</span>
+            </p>
+
+            <p class="review--needsTransportation">
+              <span>Do you need transportation?</span>
+              <span class="review__detail review__detail--needsTransportation" data-step="4"></span>
+              <span class="review__detail--edit" data-step="4">Edit</span>
+            </p>
+
+            <p class="review--hasDietaryRequirements">
+              <span>Do you have any dietary requirements?</span>
+              <span class="review__detail review__detail--hasDietaryRequirements"></span>
+              <span class="review__detail--edit" data-step="5">Edit</span>
+            </p>
+
+            <p class="review--dietaryRequirements">
+              <span>Your dietary requirements</span>
+              <span class="review__detail review__detail--dietaryRequirements"></span>
+              <span class="review__detail--edit" data-step="5">Edit</span>
+            </p>
+
+            <p class="review--accommodation">
+              <span>Do you need accommodation?</span>
+              <span class="review__detail review__detail--accommodation"></span>
+              <span class="review__detail--edit" data-step="6">Edit</span>
+            </p>
+
+  				<div class="form-field">
+  					<input type="submit" value="Looks good!">
+  				</div>
+  			</div>
+  		</form>
     </div>
-
-		<form action="/respond" method="POST">
-
-      <div class="step step-1 active">
-        <a href="#" class="next-step">Let's get started</a>
-      </div>
-
-			<div class="step step-2">
-				<h2>Who are you?</h2>
-				<p>We're sending this e-invite out to all of our friends and family, so we need to know who you are. If you're coming as part of a pair, don't worry. We'll get your partner's name in the next step step.</p>
-
-				<div class="form-field">
-					<label for="respondant">Your name</label>
-					<input type="text" name="respondant">
-				</div>
-
-				<div class="partner-fields">
-					<div class="form-field">
-						<input type="checkbox" name="havePartner" id="havePartner" value="true">
-						<label for="havePartner">Coming with a partner?</label>
-					</div>
-
-					<div class="form-field">
-						<label for="partnerName">Your partner's name</label>
-						<input type="text" name="partnerName">
-					</div>
-				</div>
-
-        <a href="#" class="next-step">Next Step</a>
-        <a href="#" class="prev-step">Back</a>
-			</div>
-
-			<div class="step step-3">
-				<h2>Are you able to attend?</h2>
-				<p><strong>The wedding is Saturday, 23rd February, 2019, in the North East of England.</strong> Whether it's right around the corner or halfway across the world, we can't wait to have you.</p>
-
-				<div class="form-field">
-					<input type="radio" name="attending" id="attending-true" value="true">
-					<label for="attending-true">Yes, I'll be there</label>
-
-					<input type="radio" name="attending" id="attending-false" value="false">
-					<label for="attending-false">Sorry, I can't make it</label>
-				</div>
-
-        <a href="#" class="next-step">Next Step</a>
-        <a href="#" class="prev-step">Back</a>
-			</div>
-
-			<div class="step step-4">
-				<h2>Do you need transportation from the wedding to the reception?</h2>
-				<p>We're having the wedding itself at a St. Luke's Church in Hartlepool, but the reception will be at Langley Castle, near Hexham. The drive takes about 1 hour.</p>
-
-				<p>If you're not planning on renting a car and want to attend the reception, let us know and we'll sort something out. We're looking at you, Canadians.</p>
-
-				<div class="form-field">
-					<input type="radio" name="needsTransportation" id="transportation-true" value="true">
-					<label for="transportation-true">Yes, I need transportation</label>
-					
-					<input type="radio" name="needsTransportation" id="transportation-false" value="false">
-					<label for="transportation-false">No, I'll make my own way up</label>
-				</div>
-
-        <a href="#" class="next-step">Next Step</a>
-        <a href="#" class="prev-step">Back</a>
-			</div>
-
-			<div class="step step-5">
-				<h2>Any dietary requirements?</h2>
-				<p>Proceeding from the wedding to the castle, we're getting set for a feast. Or what Langley Castle calls a 'wedding breakfast' (even though it's at 2 pm).</p>
-
-				<p>Is there anything that you can't or don't feel comfortable eating? The meal isn't going to be too <em>out there</em> but if you don't eat meat or you're allergic to eggs, let us know and we'll make sure you can stuff your face anyway.</p>
-
-				<div class="form-field">
-					<input type="radio" name="hasDietaryRequirements" id="dietary-true" value="true">
-					<label for="dietary-true">No dietary requirements</label>
-					
-					<input type="radio" name="hasDietaryRequirements" id="dietary-false" value="false">
-					<label for="dietary-false">I have a dietary requirement</label>
-				</div>
-
-				<div class="form-field dietary-restriction">
-					<label>What don't you eat?</label>
-					<input type="text" name="dietaryRequirements">
-				</div>
-
-        <a href="#" class="next-step">Next Step</a>
-        <a href="#" class="prev-step">Back</a>
-			</div>
-
-			<div class="step step-6">
-				<h2>Want to stay the night at the castle?</h2>
-				<p>We'll have a bit of a finger buffet going as the night falls and we intend for the party to run quite late. But all great things have to come to an end at some point.</p>
-
-				<p>If you'd like to stay the night at the castle, we've arranged to book the 9 rooms <em>inside the castle</em> for the night. There's another 18 'Castle View' rooms in a converted 18th-century stable block on the castle grounds as well. (Don't let the fact that they're in a stable fool you. They're gorgeous.)</p>
-
-				<p>The party officially ends at midnight, but anyone staying the night (either in the castle or at the Castle View) is welcome to stay up with us in the castle drawing room for nightcaps. What do you say?</p>
-
-				<em>Write up a bit about how the Castle View is less expensive and we can figure it out for you if you're keen</em>
-
-				<div class="form-field">
-					<input type="radio" name="accommodation" id="accommodation-castle" value="stayAtTheCastle">
-					<label for="accommodation-castle">I'd love to stay the night in the Castle</label>
-
-					<input type="radio" name="accommodation" id="accommodation-view" value="stayAtCastleView">
-					<label for="accommodation-view">I want to stay at the Castle View</label>
-					
-					<input type="radio" name="accommodation" id="accommodation-false" value="findOwnAccommodation">
-					<label for="accommodation-false">I'll find my own accommodation</label>
-				</div>
-
-				<div class="self-accommodating">
-					<p>If you're planning on finding your own accommodation, may we suggest Hexham? There are a few really lovely bed & breakfasts, and the proximity means that you're avoiding a long drive back into Newcastle.</p>
-				</div>
-
-        <a href="#" class="next-step">Next Step</a>
-        <a href="#" class="prev-step">Back</a>
-			</div>
-
-			<div class="step step-7">
-				<h2>All done!</h2>
-				<p>Thanks for filling all this out&mdash;it's going to make our lives a lot easier going into, well, our first day as husband and wife. Huh, that's somehow strange <em>and</em> exciting.</p>
-
-				<p>Here's a recap of your choices, just to make sure. Everything look good?</p>
-
-				<!-- Recap goes here -->
-
-				<div class="form-field">
-					<input type="submit" value="Looks good!">
-				</div>
-			</div>
-		</form>
 
     <script type="text/javascript" src="main.js"></script>
 

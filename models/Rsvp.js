@@ -6,7 +6,13 @@ const rsvpSchema = new mongoose.Schema({
     trim: true,
     // unique: true,
     lowercase: true,
-    required: 'Please let us know who you are'
+    required: 'Please let us know who you are',
+  },
+  email: {
+    type: String,
+    trim: true,
+    lowercase: true,
+    required: 'We need an email address to contact you.',
   },
   havePartner: {
     type: Boolean,
@@ -16,24 +22,32 @@ const rsvpSchema = new mongoose.Schema({
     type: String,
     trim: true,
     lowercase: true,
+    default: 'guest',
   },
   attending: {
     type: Boolean,
-    required: 'Please let us know if you\'re attending',
+    required: 'Please let us know if you can make it or not.',
   },
   needsTransportation: {
     type: Boolean,
-    required: 'Please let us know if you need transportation',
+    required: function() {
+      console.log(this.attending)
+      return this.attending;
+    },
   },
   hasDietaryRequirements: {
     type: Boolean,
-    required: 'Please let us know if you have any dietary requirements',
+    required: function() {
+      return this.attending;
+    },
     trim: true,
   },
   dietaryRequirements: String,
   accommodation: {
     type: String,
-    required: 'Would you like to stay overnight at the castle?',
+    required: function() {
+      return this.attending;
+    },
   },
   responded: {
     type: Date,
@@ -42,11 +56,11 @@ const rsvpSchema = new mongoose.Schema({
 });
 
 // Validate uniqueness, the proper way
-rsvpSchema.path('respondant').validate({
+rsvpSchema.path('email').validate({
   isAsync: true,
   // SAME AS validator: function(value, respond) {}
   validator(value, respond) {
-    this.model('Rsvp').count({ respondant: value }, (err, count) => {
+    this.model('Rsvp').count({ email: value }, (err, count) => {
       if (err) {
         return respond(err);
       }
