@@ -111,9 +111,21 @@ function populateReview() {
     // If it's a checkbox/radio field
     } else {
       const element = document.querySelector(`input[name="${field}"]:checked`);
+
+      let insert;
+      if (element) {
+        if (element.value === 'true') {
+          insert = 'Yes';
+        } else if (element.value === 'false') {
+          insert = 'No';
+        } else {
+          insert = element.value;
+        }
+      }
+
       if (element !== null) {
         document.querySelector(`.review--${field}`).style.display = 'block';
-        document.querySelector(`.review__detail--${field}`).innerText = element.value;
+        document.querySelector(`.review__detail--${field}`).innerText = insert;
       } else {
         document.querySelector(`.review--${field}`).style.display = 'none';
       }

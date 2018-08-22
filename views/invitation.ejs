@@ -23,22 +23,23 @@
   		<form action="/respond" method="POST">
 
         <div class="step step-1 active">
-          <a class="next-step" data-step="1">Let's get started</a>
+          <a class="next-step button" data-step="1">Let's get started</a>
+          <a class="button light" href="/music">Submit to the playlist</a>
         </div>
 
   			<div class="step step-2">
           <div class="step__inner">
     				<h2>Who are you?</h2>
-    				<p>We're sending this e-invite out to all of our friends and family, so we need to know who you are. If you're coming as part of a pair, don't worry. We'll get your partner's name in the next step.</p>
+    				<p>We're sending this e-invite out to all of our friends and family, so we need to know who you are. If you're bringing a partner, please add their name as well, just to help us keep our records straight.</p>
 
     				<div class="form-field">
     					<label for="respondant">Your name</label>
-    					<input type="text" class="required" name="respondant">
+    					<input type="text" autocomplete="off" class="required" name="respondant">
     				</div>
 
             <div class="form-field">
               <label for="email">Your email address</label>
-              <input type="text" class="required" name="email">
+              <input type="text" autocomplete="off" class="required" name="email">
             </div>
 
     				<div class="partner-fields">
@@ -49,13 +50,13 @@
 
     					<div class="form-field partner-name">
     						<label for="partnerName">Your partner's name</label>
-    						<input type="text" name="partnerName">
+    						<input type="text" autocomplete="off" name="partnerName">
     					</div>
     				</div>
 
-            <a class="next-step" data-step="2">Next Step</a>
-            <a class="prev-step">Back</a>
-            <a class="to-review">Review</a>
+            <a class="next-step button" data-step="2">Next Step</a>
+            <a class="prev-step button">Back</a>
+            <a class="to-review button">Review</a>
             <p class="error">Hold up, we need to know who you are first!</p>
           </div>
   			</div>
@@ -73,9 +74,9 @@
     					<label for="attending-false">Sorry, I can't make it</label>
     				</div>
 
-            <a class="next-step" data-step="3">Next Step</a>
-            <a class="prev-step">Back</a>
-            <a class="to-review">Review</a>
+            <a class="next-step button" data-step="3">Next Step</a>
+            <a class="prev-step button">Back</a>
+            <a class="to-review button">Review</a>
             <p class="error">You need to tell us if you can attend or not.</p>
     			</div>
         </div>
@@ -85,7 +86,7 @@
     				<h2>Do you need transportation from the wedding to the reception?</h2>
     				<p>We're having the wedding itself at a St. Luke's Church in Hartlepool, but the reception will be at Langley Castle, near Hexham. The drive takes about 1 hour.</p>
 
-    				<p>If you're not planning on renting a car and want to attend the reception, let us know and we'll sort something out. We're looking at you, Canadians.</p>
+    				<p><strong>Do you need us to arrange you transportation from the wedding to the reception?</strong></p>
 
     				<div class="form-field">
     					<input type="radio" name="needsTransportation" class="required" id="transportation-true" value="true">
@@ -93,12 +94,12 @@
               <br>
     					
     					<input type="radio" name="needsTransportation" class="required" id="transportation-false" value="false">
-    					<label for="transportation-false">No, I'll make my own way up</label>
+    					<label for="transportation-false">No, I'll make my own way</label>
     				</div>
 
-            <a class="next-step" data-step="4">Next Step</a>
-            <a class="prev-step">Back</a>
-            <a class="to-review">Review</a>
+            <a class="next-step button" data-step="4">Next Step</a>
+            <a class="prev-step button">Back</a>
+            <a class="to-review button">Review</a>
             <p class="error">Wait, do you need transportation or not?</p>
     			</div>
         </div>
@@ -108,7 +109,7 @@
     				<h2>Any dietary requirements?</h2>
     				<p>Proceeding from the wedding to the castle, we're getting set for a feast. Or what Langley Castle calls a 'wedding breakfast' (even though it's at 2 pm).</p>
 
-    				<p>Is there anything that you can't or don't feel comfortable eating? The meal isn't going to be too <em>out there</em> but if you don't eat meat or you're allergic to eggs, let us know and we'll make sure you can stuff your face anyway.</p>
+    				<p><strong>Is there anything that you can't or don't feel comfortable eating?</strong> The meal isn't going to be anything strange, but if you don't eat meat or you're allergic to eggs, let us know and we'll make sure you can stuff your face anyway.</p>
 
     				<div class="form-field">
     					<input type="radio" name="hasDietaryRequirements" class="required" id="dietary-false" value="false">
@@ -121,12 +122,12 @@
 
     				<div class="form-field dietary-restriction">
     					<label>What don't you eat?</label>
-    					<input type="text" name="dietaryRequirements">
+    					<input type="text" autocomplete="off" name="dietaryRequirements">
     				</div>
 
-            <a class="next-step" data-step="5">Next Step</a>
-            <a class="prev-step">Back</a>
-            <a class="to-review">Review</a>
+            <a class="next-step button" data-step="5">Next Step</a>
+            <a class="prev-step button">Back</a>
+            <a class="to-review button">Review</a>
             <p class="error">Is there anything you don't eat?</p>
     			</div>
         </div>
@@ -136,7 +137,7 @@
     				<h2>Want to stay the night at the castle?</h2>
     				<p>We'll have a bit of a finger buffet going as the night falls and we intend for the party to run quite late. But all great things have to come to an end at some point.</p>
 
-    				<p>The party officially ends at midnight, but anyone staying the night (either in the castle or at the Castle View) is welcome to stay up with us in the castle drawing room for nightcaps. What do you say?</p>
+    				<p>The party officially ends at midnight, but anyone staying the night on the castle grounds is welcome to stay up with us in the drawing room for nightcaps.</p>
 
             <p>If you'd like to stay the night with us at the Castle, let us know and we'll contact you about arranging accommodation. It's well worth the stay.</p>
 
@@ -150,12 +151,12 @@
     				</div>
 
     				<div class="self-accommodating">
-    					<p>If you're planning on finding your own accommodation, may we suggest Hexham? There are a few really lovely bed & breakfasts, and the proximity means that you're avoiding a long drive back into Newcastle.</p>
+    					<p>If you're planning on finding your own accommodation, may we suggest Hexham? There are a few really lovely bed & breakfasts, and the proximity means that you're avoiding a long drive back into Newcastle. You'll find more info <a href="/info" target="_blank" </p>
     				</div>
 
-            <a class="next-step" data-step="6">Next Step</a>
-            <a class="prev-step">Back</a>
-            <a class="to-review">Review</a>
+            <a class="next-step button" data-step="6">Next Step</a>
+            <a class="prev-step button">Back</a>
+            <a class="to-review button">Review</a>
             <p class="error">Hold on, let us know whether you'd like to stay at the Castle.</p>
     			</div>
         </div>
@@ -216,7 +217,7 @@
             </p>
 
   				<div class="form-field">
-  					<input type="submit" value="Looks good!">
+  					<input type="submit" value="Looks good!" class="button">
   				</div>
   			</div>
   		</form>

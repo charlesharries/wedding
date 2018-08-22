@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <%- include partials/_head %>
+  <%- include partials/_flash %>
+  <body>
+    <div class="inner">
+      <h1>Let's pick some music!</h1>
+      <p>We're crowdsourcing our music choice at the wedding since we want everyone to have as good a time as we are. So feel free to add as many songs to the request book as you'd like and we'll make sure you get the chance to boogie.</p>
+
+      <form class="music-form">
+        <div class="form-field music">
+          <label for="title">Song title</label>
+          <input type="text" class="required" name="title">
+        </div>
+
+        <div class="form-field music">
+          <label for="artist">Artist</label>
+          <input type="text" class="required" name="artist">
+        </div>
+
+        <button type="submit" class="button">
+          <img src="/images/plus.png" class="plus-sign" />
+          Add
+        </button>
+      </form>
+      
+      <div style="text-align:center;">
+        <div class="submit-response"></div>
+      </div>
+
+      <h2>Have you RSVP'd?</h2>
+      <p>We're asking everyone that can to RSVP through our web form since it makes it a lot easier for us to keep track of who's coming and who isn't able to make it. If you haven't responded yet, head over to our snazzy form and let us know if you're coming! Charles spent a bunch of time on it.</p>
+      <a href="/" class="button light">RSVP</a>
+      
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      <script type="text/javascript" src="songRequest.js"></script>
+    </div>
+  </body>
+</html>
