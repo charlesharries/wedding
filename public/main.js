@@ -2,10 +2,10 @@ const nextStepBtns = document.querySelectorAll('.next-step');
 const prevStepBtns = document.querySelectorAll('.prev-step');
 const toReviewBtns = document.querySelectorAll('.to-review');
 const editBtns = document.querySelectorAll('.review__detail--edit');
-const progressBar = document.querySelector('.progress-bar--filled');
 const attendingBtn = document.querySelector('input#attending-true');
 const dependents = document.querySelectorAll('.dependent');
 const noDietaryRestriction = document.querySelector('#dietary-false');
+
 let currentStep = 0;
 
 function validateAndProgress() {
@@ -52,8 +52,9 @@ function nextStep() {
     next.classList.add('active');
   }, 300);
 
+  resizePageForStep(next);
+
   currentStep += 1;
-  progressBar.style.width = `${currentStep * 16.6667}%`;
 
   if (currentStep === 6) {
     populateReview();
@@ -73,25 +74,36 @@ function prevStep() {
     prev.classList.add('active');
   }, 300);
 
+  resizePageForStep(prev);
+
   currentStep -= 1;
-  progressBar.style.width = `${currentStep * 16.6667}%`;
 }
 
 function goToStep(stepNo) {
   document.querySelectorAll('.step').forEach((step) => {
     step.classList.remove('active');
   });
+
+  const goTo = document.querySelector(`.step-${stepNo}`);
   setTimeout(() => {
-    document.querySelector(`.step-${stepNo}`).classList.add('active');
+    goTo.classList.add('active');
   }, 300);
 
+  resizePageForStep(goTo);
+
   currentStep = stepNo - 1;
-  progressBar.style.width = `${currentStep * 16.6667}%`;
 }
 
 function goToEnd() {
   populateReview();
   goToStep(7);
+}
+
+function resizePageForStep(step) {
+  document.body.style.overflow = 'initial';
+  const bodyWrapper = document.querySelector('.body-wrapper');
+  const cardHeight = step.offsetHeight + 140;
+  bodyWrapper.style.height = `${cardHeight}px`;
 }
 
 function populateReview() {
@@ -152,18 +164,15 @@ function showNextAndPrev() {
   });
 }
 
-function scrollToForm() {
-  const intro = document.querySelector('.intro');
-  const formTop = intro.offsetHeight + intro.offsetTop;
-  window.scrollTo(0, formTop);
-}
-
 function handleDependentCheck() {
   if (this.checked) {
     this.parentElement.nextElementSibling.style.display = 'block';
   } else {
     this.parentElement.nextElementSibling.style.display = 'none';
   }
+
+  const currentStep = document.querySelector('.active');
+  resizePageForStep(currentStep);
 }
 
 function hideDietaryRestrictions() {
@@ -172,22 +181,18 @@ function hideDietaryRestrictions() {
 
 nextStepBtns.forEach((btn) => {
   btn.addEventListener('click', validateAndProgress);
-  btn.addEventListener('click', scrollToForm);
 });
 
 prevStepBtns.forEach((btn) => {
   btn.addEventListener('click', prevStep);
-  btn.addEventListener('click', scrollToForm);
 });
 
 toReviewBtns.forEach((btn) => {
   btn.addEventListener('click', goToEnd);
-  btn.addEventListener('click', scrollToForm);
 });
 
 editBtns.forEach((btn) => {
   btn.addEventListener('click', editStep);
-  btn.addEventListener('click', scrollToForm);
 });
 
 dependents.forEach((btn) => {

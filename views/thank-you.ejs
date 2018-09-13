@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-	<%- include partials/_head %>
+<html>
+  <%- include partials/_head %>
   <%- include partials/_flash %>
-	<body>
-		<h1>Thank you!</h1>
-		<a href="/">Back home</a>
-	</body>
+  <body>
+    <div class="body-wrapper thank-you">
+      <header>
+        <%- include partials/_nav %>
+      </header>
+      <div class="inner">
+        <h1>Thank you!</h1>
+        <p>Thank you for filling out our RSVP. I know it's a little unconventional, but I make websites for a living and Sam is teaching the youth of the North East how to become the next Mark Zuckerberg, so online signups are sort of, like, a given.</p>
+        <p>Anyway you're all signed up, to expect to hear from us soon with details about accommodation and transport.</p>
+        <p>In the meantime, can we interest you in submitting some requests to the <a href="/music">Official Sam and Charles Music Playlist Request Machine?</a></p>
+      </div>
+    </div>
+  </body>
 </html>

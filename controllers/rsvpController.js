@@ -1,6 +1,10 @@
 const Rsvp = require('../models/Rsvp');
 
 exports.home = (req, res) => {
+  res.render('home', { flash: req.flash('flash') });
+};
+
+exports.rsvp = (req, res) => {
   res.render('invitation', { flash: req.flash('flash') });
 };
 

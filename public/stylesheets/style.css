@@ -1,34 +1,125 @@
 body {
-  padding: 50px;
+  padding: 0;
+  margin: 0;
   font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
   font-size: 20px;
+  position: relative;
+  color: #242;
+  line-height: 1.4;
+  z-index: -3;
 }
 
 .inner {
+  padding: 0 20px;
   max-width: 960px;
   margin: 0 auto;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.body-wrapper.home {
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.body-wrapper {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff9ff;
+  z-index: -2;
+}
+
+.body-wrapper.home .inner {
+  min-height: calc(100vh - 68px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-wrapper.home .inner .text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-wrapper.invitation,
+.body-wrapper.thank-you {
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.body-wrapper.home .inner h1,
+.body-wrapper.home .inner h3 {
+  text-align: center;
+}
+
+.body-wrapper.thank-you .inner {
+  padding: 40px;
+  background: #fff;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
 }
 
 h1, h2, h3 {
-  font-family: 'Cormorant Unicase';
+  font-family: 'Quintessential';
+  font-weight: 400;
+  color: #a6023a;
   margin-top: 0;
 }
 
 h1 {
-  border-bottom: 1px solid purple;
   padding-bottom: 20px;
 }
 
 h2 {
   margin-bottom: 0;
-  border-bottom: 1px solid purple;
   padding-bottom: 20px;
-  margin-top: 40px;
 }
 
 a {
   cursor: pointer;
   text-decoration: none;
+}
+
+.inner a {
+  color: #a6023a;
+  border-bottom: 1px solid #a6023a;
+}
+
+header {
+  padding: 0 60px;
+  text-align: right;
+}
+
+header nav {
+  display: inline-block;
+}
+
+nav ul {
+  padding-left: 0;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  font-family: 'Cormorant Garamond', sans-serif;
+  color: #a6023a;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #224;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
 }
 
 .intro {
@@ -41,6 +132,11 @@ form {
 
 form.music-form {
   text-align: center;
+  margin-bottom: 40px;
+}
+
+.have-you-rsvpd {
+  max-width: 660px;
 }
 
 label {
@@ -85,8 +181,8 @@ input + label:before {
 }
 
 input:checked + label:before {
-  background-color: purple;
-  border-color: purple;
+  background-color: #a6023a;
+  border-color: #a6023a;
   background-image: url('../images/check.png');
   background-size: 14px;
   background-repeat: no-repeat;
@@ -107,6 +203,13 @@ input:checked + label:before {
   margin-right: 20px;
 }
 
+.step.step-2,
+.step.step-3, .step.step-4,
+.step.step-5, .step.step-6,
+.step.step-7 {
+  background-color: white;
+}
+
 .step a.to-review {
   display: none;
 }
@@ -114,7 +217,6 @@ input:checked + label:before {
 .step {
   box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
   padding: 40px;
-  margin-top: 40px;
   margin-bottom: 100px;
 }
 
@@ -127,11 +229,14 @@ input:checked + label:before {
   margin-top: 0;
 }
 
-.button {
+a.button,
+button.button,
+input.button {
+  color: #fff;
   margin-top: 20px;
   margin-right: 10px;
   display: inline-block;
-  background: purple;
+  background: #a6023a;
   color: white;
   padding: 8px 16px;
   border-radius: 2px;
@@ -145,8 +250,8 @@ input:checked + label:before {
 
 .button.light {
   background: transparent;
-  color: purple;
-  border: 1px solid purple;
+  color: #a6023a;
+  border: 1px solid #a6023a;
   box-shadow: none;
   margin-top: 20px!important;
 }
@@ -163,14 +268,13 @@ input:checked + label:before {
 }
 
 .step__inner {
-  border: 1px solid purple;
   padding: 40px;
 }
 
 .step.active {
   transform: translateY(0);
   opacity: 1;
-  z-index: 10;
+  z-index: 10;=
 }
 
 .step.complete {
@@ -188,7 +292,7 @@ input:checked + label:before {
 .progress-bar--filled {
   height: 100%;
   width: 0;
-  background-color: purple;
+  background-color: #a6023a;
   transition: width 0.3s ease;
   position: relative;
 }
@@ -214,7 +318,7 @@ input:checked + label:before {
 
 .result {
   font-weight: 700;
-  color: purple;
+  color: #a6023a;
 }
 
 .review p span {
@@ -229,19 +333,142 @@ input:checked + label:before {
 }
 
 .review p span.review__detail--edit {
-  color: purple;
+  color: #a6023a;
   font-size: 16px;
-  border: 1px solid purple;
+  border: 1px solid #a6023a;
   padding: 3px 6px;
   margin-left: 10px;
   border-radius: 2px;
   cursor: pointer;
 }
 
+.flower {
+  width: 400px;
+  position: absolute;
+  z-index: -1;
+}
+
+.invitation .flower {
+  z-index: 1;
+}
+
+.flower.top-left {
+  top: -40px;
+  left: -40px;
+}
+
+.flower.bottom-left {
+  bottom: -40px;
+  left: -40px;
+}
+
+.flower.bottom-right {
+  bottom: -40px;
+  right: -40px;
+}
+
+.flip-horizontal {
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+.flip-vertical {
+  -moz-transform: scale(1, -1);
+  -webkit-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+@media screen and (min-width: 1280px) {
+  .body-wrapper.home .inner h1 {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .body-wrapper.home .inner h1 {
+    font-size: 3.5rem;
+  }
+
+  .flower {
+    width: 500px;
+  }
+
+  .flower.bottom-right {
+    width: 600px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .flower {
+    width: 450px;
+  }
+
+  .flower.bottom-right {
+    width: 525px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .inner {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  header {
+    padding: 0 20px;
+    padding-top: 20px;
+  }
+
+  nav {
+    text-align: center;
+    background: #fff;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  }
+
+  header nav {
+    width: 100%;
+  }
+
+  .text-wrapper {
+    padding: 40px;
+    background: white;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .step.step-1 {
+    background: white;
+    padding: 30px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  }
+}
+
 @media screen and (max-width: 600px) {
+  h1 {
+    padding-bottom: 0;
+  }
+
   body {
-    padding-left: 5px;
-    padding-right: 5px;
+    font-size: 18px;
+  }
+
+  header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .inner {
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .step__inner {
+    padding: 20px;
   }
 
   .step {
@@ -260,5 +487,14 @@ input:checked + label:before {
 
   form.music-form .form-field {
     display: block;
+  }
+
+  .body-wrapper.music .inner {
+    background: white;
+    padding: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
   }
 }
