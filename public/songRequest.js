@@ -9,7 +9,7 @@ function handleSubmit(e) {
 
   console.log(title, artist);
 
-  fetch('http://localhost:3000/music', {
+  fetch('/music', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
